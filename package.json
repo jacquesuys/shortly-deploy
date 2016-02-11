@@ -33,7 +33,9 @@
   },
   "devDependencies": {
     "grunt-contrib-concat": "^0.3.0",
+    "grunt-contrib-eslint": "0.0.5",
     "grunt-contrib-uglify": "^0.4.1",
+    "grunt-eslint": "^17.3.1",
     "supertest": "^0.10.0"
   }
 }

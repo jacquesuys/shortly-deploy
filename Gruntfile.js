@@ -5,7 +5,7 @@ module.exports = function(grunt) {
     concat: {
       dist: {
         src: 'public/client/*.js',
-        dest: 'public/main.js'
+        dest: 'public/dist/main.js'
       }
     },
 
@@ -27,15 +27,13 @@ module.exports = function(grunt) {
     uglify: {
       my_target: {
         files: {
-          'public/main.min.js': 'public/main.js'
+          'public/dist/main.min.js': 'public/main.js'
         }
       }
     },
 
     eslint: {
-      target: [
-        // Add list of files to lint here
-      ]
+      target: ['public/dist/main.min.js']
     },
 
     cssmin: {
