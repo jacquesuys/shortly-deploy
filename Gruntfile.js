@@ -3,6 +3,10 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     concat: {
+      dist: {
+        src: 'public/client/*.js',
+        dest: 'public/main.js'
+      }
     },
 
     mochaTest: {
@@ -21,6 +25,11 @@ module.exports = function(grunt) {
     },
 
     uglify: {
+      my_target: {
+        files: {
+          'public/main.min.js': 'public/main.js'
+        }
+      }
     },
 
     eslint: {
