@@ -23,7 +23,6 @@ module.exports = function(grunt) {
         script: 'server.js'
       }
     },
-
     uglify: {
       my_target: {
         files: {
