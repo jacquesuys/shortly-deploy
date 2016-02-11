@@ -3,6 +3,10 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     concat: {
+      dist: {
+        src: 'public/client/*.js',
+        dest: 'public/dist/main.js'
+      }
     },
 
     mochaTest: {
@@ -21,12 +25,15 @@ module.exports = function(grunt) {
     },
 
     uglify: {
+      my_target: {
+        files: {
+          'public/dist/main.min.js': 'public/dist/main.js'
+        }
+      }
     },
 
     eslint: {
-      target: [
-        // Add list of files to lint here
-      ]
+      target: ['public/dist/main.min.js']
     },
 
     cssmin: {
@@ -74,7 +81,7 @@ module.exports = function(grunt) {
     nodemon.stdout.pipe(process.stdout);
     nodemon.stderr.pipe(process.stderr);
 
-    grunt.task.run([ 'watch' ]);
+    grunt.task.run(['concat', 'uglify', 'mochaTest', 'watch']);
   });
 
 
